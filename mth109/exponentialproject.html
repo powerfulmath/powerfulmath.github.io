@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>The Exponential Modeling Project Population Data Generator</title>
+	<style>
+		html {
+		    box-sizing: border-box;
+		    font-size: 16px;
+		}
+		 
+		*, *:before, *:after {
+		    box-sizing: inherit;
+		}
+		 
+		body {
+		    margin: 1rem;
+		    font-family: sans-serif;
+		    line-height: 1.5;
+		    background-color: lightyellow;
+		}
+		
+		table, tr, th, td {
+			border: 1px solid;
+		}
+		
+		#outputDIV {
+		    background-color: rgb(180,220,256);
+		    padding: 8px;
+		}
+		 
+		#container {
+		    border: 2px solid black;
+		    padding: 20px;
+		}
+		 
+		#formula {
+		    height: auto;
+		    max-width: 325px;
+		    border: dashed 1px 
+		}
+		
+		#country {
+			order: 1px solid;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<h1>The Exponential Modeling Project Population Data Generator</h1>
+		<p>Enter Your UMID: <input type="text" size="10" id="UMID"></p>
+		<p><button type="button" onclick="createDataTable()">Create Data Table</button></p>
+		<div id="outputDIV">
+			<p>The data will display here.</p>
+		</div>
+	</div>
+	
+	<script language="javascript">
+	function createDataTable() {
+		var outputDiv = document.getElementById("outputDIV");
+		var umid = parseInt(document.getElementById("UMID").value);
+		var f = getRandomInt(4)+1;
+		
+		if (isNaN(umid)){
+              outputDiv.textContent = "There is a problem with your input. Try again.";
+       
+   		} else {
+			outputDiv.innerHTML = '<table id="country" width="20%">' + 
+				'<tr><td>1910</td><td>'+parseInt(92228531**(1+f/100)-umid/2)+'</td></tr>' +
+				'<tr><td>1920</td><td>'+parseInt(106021568**(1+f/100)-umid/2)+'</td></tr>' +
+				'<tr><td>1930</td><td>'+parseInt(123202660**(1+f/100)-umid/2)+'</td></tr>' +
+				'<tr><td>1940</td><td>'+parseInt(132165129**(1+f/100)-umid/2)+'</td></tr>' +
+				'<tr><td>1950</td><td>'+parseInt(151325798**(1+f/100)-umid/2)+'</td></tr>' +
+				'<tr><td>1960</td><td>'+parseInt(179323175**(1+f/100)-umid/2)+'</td></tr>' +
+				'<tr><td>1970</td><td>'+parseInt(203211926**(1+f/100)-umid/2)+'</td></tr>' +
+				'<tr><td>1980</td><td>'+parseInt(226545805**(1+f/100)-umid/2)+'</td></tr>' +
+				'<tr><td>1990</td><td>'+parseInt(248709873**(1+f/100)-umid/2)+'</td></tr>' +
+				'<tr><td>2000</td><td>'+parseInt(281421906**(1+f/100)-umid/2)+'</td></tr>' +
+				'<tr><td>2010</td><td>'+parseInt(308745538**(1+f/100)-umid/2)+'</td></tr>' +
+				'<tr><td>2020</td><td>'+parseInt(331449281**(1+f/100)-umid/2)+'</td></tr>' +
+				'</table>';		}
+	}
+
+	function getRandomInt(max) {
+		return Math.floor(Math.random() * max);
+	}
+	</script>
+</body>
+</html>
 
