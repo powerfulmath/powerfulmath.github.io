@@ -1,7 +1,14 @@
 <!DOCTYPE html>
+<!-- 
+	This is my template for writing documents in light mode using KaTex for math and
+  	simple.css for style.
+-->
+
 <!-- KaTeX requires the use of the HTML5 doctype. Without it, KaTeX may not render properly -->
 <html>
 <head>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" /> 
+  
 		<!-- Minified version -->
 		<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
       
@@ -22,6 +29,26 @@
       onload="renderMathInElement(document.body);">
     </script>
     <title>KaTex Examples</title>
+    
+    <style>
+			/* Force light mode, overriding simple.css */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          color-scheme: light;
+          --bg: #fff;
+          --accent-bg: #f5f7ff;
+          --text: #212121;
+          --text-light: #585858;
+          --accent: #0d47a1;
+          --accent-hover: #1266e2;
+          --accent-text: var(--bg);
+          --code: #d81b60;
+          --preformatted: #444;
+          --marked: #ffdd33;
+          --disabled: #efefef;
+        }
+      }    
+    </style>
   	</head>
   	<body>
       <h1>KaTex Examples</h1>
@@ -29,7 +56,7 @@
       <!-- This work with in-line! -->
       <p>This is in-line math: \(-6 \lt x \lt \infty\)</p>
       
-      <p>This is a math block $$\frac{x}{25} \lt 80$$</p>
+      <p>This is a math block: $$\frac{x}{25} \lt 80$$</p>
       
 	</body>
 </html>
