@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- This is a single-file, adapted version of https://github.com/alterebro/PaceCalculator -->
+	
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Running Pace Calculator</title>
@@ -28,13 +30,445 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 	<meta name="apple-mobile-web-app-title" content="Running Pace Calculator" />
 
-	<link rel="icon" href="favicon.ico" />
-	<link rel="icon" sizes="256x256" href="icon.png" />
-	<link rel="apple-touch-icon" href="icon.png" />
-
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" />
-	<link rel="stylesheet" href="css/pacecalculator.css" />
+	
+	
+	<style>
+	
+	/*!	BASED ON : armazon.css v0.3.1 - Lightweight and Supersimple CSS3 Boilerplate Micro Framework built on LESS
+ 	(c) 2016 Jorge Moreno ( @alterebro ) - MIT License - https://github.com/alterebro/armazon.css */
+	
+		html,body{
+		    margin:0;
+		    padding:0
+		}
+		html{
+		    font-family:sans-serif;
+		    -ms-text-size-adjust:100%;
+		    -webkit-text-size-adjust:100%;
+		    box-sizing:border-box;
+		    font-size:62.5%
+		}
+		body{
+		    font-size:1.6em;
+		    line-height:1.5
+		}
+		*,*:before,*:after{
+		    box-sizing:inherit;
+		    -webkit-transition:all .25s ease-out;
+		    transition:all .25s ease-out
+		}
+		article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{
+		    display:block
+		}
+		a{
+		    background-color:transparent;
+		    text-decoration:none;
+		    color:#ba3e37;
+		    border-bottom:solid transparent 1px
+		}
+		a:active,a:hover{
+		    outline:0;
+		    color:#262524;
+		    border-bottom:solid #ba3e37 1px
+		}
+		b,strong{
+		    font-weight:bold
+		}
+		dfn{
+		    font-style:normal
+		}
+		small{
+		    font-size:80%
+		}
+		img{
+		    border:0;
+		    display:block;
+		    margin:0 0 1.8rem 0;
+		    max-width:100%
+		}
+		hr{
+		    height:0;
+		    margin:3.6rem 0;
+		    border:none;
+		    border-top:dotted #d3d3d3 1px
+		}
+		button,input,optgroup,select,textarea{
+		    color:inherit;
+		    font:inherit;
+		    margin:0
+		}
+		button{
+		    overflow:visible
+		}
+		button,select{
+		    text-transform:none
+		}
+		button,html input[type="button"],input[type="button"],input[type="reset"],input[type="submit"]{
+		    cursor:pointer;
+		    display:inline-block;
+		    text-transform:uppercase;
+		    font-size:1rem;
+		    font-weight:700;
+		    letter-spacing:.1rem;
+		    text-align:center;
+		    color:#fafbfc;
+		    background:#ba3e37;
+		    border:none;
+		    white-space:nowrap;
+		    border-radius:3px;
+		    text-shadow:0 -1px 0 rgba(0,0,0,0.1);
+		    vertical-align:top;
+		    min-width:24rem;
+		    max-width:100%;
+		    padding:0;
+		    height:3.6rem;
+		    line-height:3.6rem
+		}
+		button:hover,button:focus,html input[type="button"]:hover,html input[type="button"]:focus,input[type="button"]:hover,input[type="button"]:focus,input[type="reset"]:hover,input[type="reset"]:focus,input[type="submit"]:hover,input[type="submit"]:focus{
+		    text-decoration:none;
+		    background:#262524;
+		    color:#fafbfc;
+		    border:none;
+		    outline:0
+		}
+		button::-moz-focus-inner,input::-moz-focus-inner{
+		    border:0;
+		    padding:0
+		}
+		input{
+		    line-height:normal
+		}
+		input[type="checkbox"],input[type="radio"]{
+		    padding:0;
+		    display:inline
+		}
+		input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{
+		    height:auto
+		}
+		input[type="search"]{
+		    -webkit-appearance:textfield
+		}
+		input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{
+		    -webkit-appearance:none
+		}
+		form{
+		    margin:0;
+		    padding:0
+		}
+		label{
+		    display:block
+		}
+		textarea{
+		    overflow:auto
+		}
+		optgroup{
+		    font-weight:bold
+		}
+		input[type="date"],input[type="time"],input[type="email"],input[type="number"],input[type="search"],input[type="text"],input[type="tel"],input[type="url"],input[type="password"],textarea,select{
+		    -webkit-appearance:none;
+		    -moz-appearance:none;
+		    appearance:none;
+		    background:#fff;
+		    border:solid #d3d3d3 1px;
+		    border-radius:none;
+		    display:inline-block;
+		    vertical-align:top;
+		    padding:.5rem .75rem;
+		    width:100%;
+		    max-width:30rem;
+		    height:3.6rem
+		}
+		select{
+		    border:none;
+		    outline:1px solid #d3d3d3;
+		    outline-offset:-1px;
+		    border-radius:0;
+		}
+		textarea{
+		    min-height:12rem
+		}
+		input[type="date"]:focus,input[type="time"]:focus,input[type="email"]:focus,input[type="number"]:focus,input[type="search"]:focus,input[type="text"]:focus,input[type="tel"]:focus,input[type="url"]:focus,input[type="password"]:focus,textarea:focus,select:focus{
+		    border:solid #ba3e37 1px;
+		    outline:0
+		}
+		select:focus{
+		    border:none;
+		    outline:solid #ba3e37 1px;
+		    outline-offset:-1px;
+		    border-radius:0
+		}
+		ol,ul{
+		    padding:0 0 0 1.8rem;
+		    margin:0 0 3.6rem 1.8rem
+		}
+		ol li,ul li{
+		    padding:.1rem 0
+		}
+		ul ul,ul ol,ol ol,ol ul{
+		    margin:.5rem .9rem
+		}
+		dl dd{
+		    margin:0;
+		    padding:0;
+		    color:#a0a0a0
+		}
+		button,.button,input,textarea,select,fieldset{
+		    margin:0 0 5px 0
+		}
+		h1,h2,h3,h4,h5,h6,p,pre{
+		    margin:0 0 1.8rem 0
+		}
+		blockquote,figure,table,dl{
+		    margin:0 0 3.6rem 0
+		}
+		::-moz-selection{
+		    background:#b3d4fc;
+		    text-shadow:none
+		}
+		::selection{
+		    background:#b3d4fc;
+		    text-shadow:none
+		}
+		html{
+		    height:100%;
+		    color:#262524;
+		    background-color:#ba3e37;
+		    background-image:url('../img/track-field.jpg');
+		    background-repeat:no-repeat;
+		    background-position:center center;
+		    background-attachment:fixed;
+		    -webkit-background-size:cover;
+		    -moz-background-size:cover;
+		    -o-background-size:cover;
+		    background-size:cover
+		}
+		body{
+		    min-height:100%;
+		    width:100%;
+		    max-width:480px;
+		    margin:0 auto;
+		    background:rgba(255,255,255,0.975);
+		    box-shadow:0 0 0 1px rgba(0,0,0,0.2),0 0 0 4px rgba(0,0,0,0.1)
+		}
+		body>*{
+		    font-family:'Roboto';
+		    font-weight:300;
+		    font-size:1.3rem;
+		    text-shadow:0 1px 0 #fff
+		}
+		header{
+		    background:#ae3a34;
+		    color:#fafbfc;
+		    box-shadow:inset 0 -1px 0 #7f2a26;
+		    text-align:center
+		}
+		header h1{
+		    text-shadow:0 -1px 0 rgba(0,0,0,0.25);
+		    font-weight:400;
+		    font-size:120%;
+		    padding:2rem 0;
+		    margin:0 auto 2rem auto
+		}
+		header h1:after{
+		    content:'';
+		    display:inline-block;
+		    width:24px;
+		    height:24px;
+		    background-image:url(../icon.png);
+		    background-size:24px;
+		    margin:0 0 0 10px;
+		    vertical-align:middle
+		}
+		footer{
+		    clear:both;
+		    padding:2rem 0
+		}
+		footer hr{
+		    display:none
+		}
+		footer p{
+		    border-top:dotted #df9692 1px;
+		    padding:20px 20px 0 20px;
+		    margin:0 0 5px 0;
+		    text-align:center
+		}
+		footer ul.social-sharing{
+		    margin:0;
+		    padding:0;
+		    list-style:none;
+		    text-align:center
+		}
+		footer ul.social-sharing li{
+		    display:inline-block;
+		    margin:0 0 0 5px;
+		    font-weight:400
+		}
+		footer ul.social-sharing li i{
+		    margin:0 5px 0 0
+		}
+		footer ul.social-sharing li:first-child{
+		    margin:0
+		}
+		section[role="main"]{
+		    margin:0 auto;
+		    overflow:auto
+		}
+		section[role="main"] p.intro{
+		    padding:0 25px;
+		    margin:0 auto 10px auto;
+		    text-align:justify
+		}
+		@media all and (min-width: 480px){
+		    section[role="main"] p.intro{
+		        text-align:left
+		    }
+		}
+		section[role="main"] dl{
+		    width:290px;
+		    margin:0 auto;
+		    padding:0
+		}
+		section[role="main"] dl dt{
+		    clear:both;
+		    border-bottom:dotted #ba3e37 1px;
+		    line-height:30px;
+		    padding:5px 0 0 0
+		}
+		section[role="main"] dl dt i{
+		    color:#ba3e37
+		}
+		section[role="main"] dl dd{
+		    float:left;
+		    overflow:auto
+		}
+		section[role="main"] dl dd span{
+		    display:block;
+		    float:left;
+		    padding:0 5px 0 0
+		}
+		section[role="main"] dl dd span label{
+		    font-size:80%;
+		    line-height:20px;
+		    display:block;
+		    padding:.5rem 0 0 0
+		}
+		section[role="main"] dl dd p{
+		    line-height:20px;
+		    margin:0;
+		    padding:5px 0 0 0;
+		    font-size:80%;
+		    white-space:nowrap;
+		    overflow:hidden;
+		    width:95px;
+		    visibility:hidden
+		}
+		section[role="main"] dl dd input[type="button"],section[role="main"] dl dd button{
+		    width:95px;
+		    min-width:0;
+		    padding:0;
+		    display:block;
+		    float:left
+		}
+		section[role="main"] dl dd.time-input span,section[role="main"] dl dd.pace-input span,section[role="main"] dl dd.distance-input span{
+		    width:65px
+		}
+		section[role="main"] dl dd.distance-input span:nth-child(1){
+		    width:65px
+		}
+		section[role="main"] dl dd.distance-input span:nth-child(2){
+		    width:130px
+		}
+		section[role="main"] dl dd.distance-input div.separator-or{
+		    clear:both;
+		    font-size:75%;
+		    text-transform:uppercase;
+		    letter-spacing:.15rem;
+		    padding:0 0 .25rem 0
+		}
+		section[role="main"] dl dd.distance-input div.event-input{
+		    margin:0 .5rem 0 0
+		}
+		@media all and (min-width: 480px){
+		    section[role="main"] dl{
+		        font-size:1.5rem;
+		        width:420px
+		    }
+		    section[role="main"] dl dd p,section[role="main"] dl dd input[type="button"],section[role="main"] dl dd button{
+		        width:195px
+		    }
+		    section[role="main"] dl dd button:before{
+		        content:'calculate '
+		    }
+		    section[role="main"] dl dd.time-input span,section[role="main"] dl dd.pace-input span,section[role="main"] dl dd.distance-input span{
+		        width:75px
+		    }
+		    section[role="main"] dl dd.distance-input span:nth-child(1){
+		        width:75px
+		    }
+		    section[role="main"] dl dd.distance-input span:nth-child(2){
+		        width:150px
+		    }
+		}
+		#modal-window{
+		    position:fixed;
+		    top:200%;
+		    left:0;
+		    width:100%;
+		    height:100%;
+		    background-color:rgba(0,0,0,0)
+		}
+		#modal-window.open{
+		    top:0;
+		    background-color:rgba(0,0,0,0.35)
+		}
+		#modal-window div[class^="modal"]{
+		    background:#fafbfc;
+		    width:280px;
+		    margin:0 auto;
+		    padding:3.6rem;
+		    position:relative;
+		    top:50%;
+		    -webkit-transform:translateY(-50%);
+		    -ms-transform:translateY(-50%);
+		    transform:translateY(-50%);
+		    box-shadow:0 0 0 1px rgba(0,0,0,0.2),0 0 0 4px rgba(0,0,0,0.1)
+		}
+		#modal-window div[class^="modal"] #modal-error{
+		    color:#6b2420;
+		    margin:0 0 2rem 0 !important
+		}
+		#modal-window div[class^="modal"] dl{
+		    margin:0 0 1.8rem 0
+		}
+		#modal-window div[class^="modal"] dl dt{
+		    border-bottom:dotted #ba3e37 1px
+		}
+		#modal-window div[class^="modal"] dl dt dfn{
+		    text-transform:uppercase;
+		    font-size:80%;
+		    font-weight:400;
+		    color:#a0a0a0
+		}
+		#modal-window div[class^="modal"] dl dd{
+		    font-size:190%;
+		    font-weight:100;
+		    letter-spacing:-0.05rem;
+		    color:#262524;
+		    text-align:right
+		}
+		#modal-window div[class^="modal"] p{
+		    margin:0
+		}
+		#modal-window div[class^="modal"] p button{
+		    width:100%;
+		    min-width:auto;
+		    margin:0
+		}
+
+	</style>
+	
 </head>
 <body>
 
@@ -45,10 +479,12 @@
 <section role="main">
 
 	<p class="intro">
-		Figure out the average pace for your most recent race, calculate how far you ran based on your estimated pace workout,
-		or plan your training using this calculator to determine the pace for a given distance.
+		Figure out the average pace for your most recent race, calculate how far you ran based on your 
+		estimated pace workout,or plan your training using this calculator to determine the pace for a 
+		given distance.
 		<br />
-		Just enter any two of the three variable fields (pace, time, distance) and press the button of the other one to calculate the value.
+		Just enter any two of the three variable fields (pace, time, distance) and press the button of 
+		the other one to calculate the value.
 	</p>
 
 	<form id="pace-calculator-form">
@@ -57,15 +493,18 @@
 			<dd class="time-input">
 				<span>
 					<label for="time-hours">Hours</label>
-					<input type="number" name="time-hours" id="time-hours" maxlength="2" placeholder="hh" step="1" min="0" max="99" />
+					<input type="number" name="time-hours" id="time-hours" maxlength="2" 
+						placeholder="hh" step="1" min="0" max="99" />
 				</span>
 				<span>
 					<label for="time-minutes">Mins</label>
-					<input type="number" name="time-minutes" id="time-minutes" maxlength="2" placeholder="mm" step="1" min="0" max="59" />
+					<input type="number" name="time-minutes" id="time-minutes" maxlength="2" 
+						placeholder="mm" step="1" min="0" max="59" />
 				</span>
 				<span>
 					<label for="time-seconds">Secs</label>
-					<input type="number" name="time-seconds" id="time-seconds" maxlength="6" placeholder="ss" step="1" min="0" max="59" />
+					<input type="number" name="time-seconds" id="time-seconds" maxlength="6" 
+						placeholder="ss" step="1" min="0" max="59" />
 				</span>
 			</dd>
 			<dd>
@@ -78,7 +517,8 @@
 				<div>
 					<span class="double-w">
 						<label for="distance-amount">Distance</label>
-						<input type="number" name="distance-amount" id="distance-amount" maxlength="8" step="any" min="0" />
+						<input type="number" name="distance-amount" id="distance-amount" 
+							maxlength="8" step="any" min="0" />
 					</span>
 					<span>
 						<label for="distance-unit">Unit</label>
@@ -120,11 +560,13 @@
 			<dd class="pace-input">
 				<span>
 					<label for="pace-minutes">Mins</label>
-					<input type="number" name="pace-minutes" id="pace-minutes" maxlength="2" placeholder="mm" min="0" max="59"  />
+					<input type="number" name="pace-minutes" id="pace-minutes" 
+						maxlength="2" placeholder="mm" min="0" max="59"  />
 				</span>
 				<span>
 					<label for="pace-seconds">Secs</label>
-					<input type="number" name="pace-seconds" id="pace-seconds" maxlength="6" placeholder="ss" min="0" max="60"  />
+					<input type="number" name="pace-seconds" id="pace-seconds" 
+						maxlength="6" placeholder="ss" min="0" max="60"  />
 				</span>
 				<span>
 					<label for="pace-unit">/ Per</label>
@@ -174,9 +616,298 @@
 		<strong>Running Pace Calculator</strong> &copy; 2013-2016. By: <a href="https://twitter.com/alterebro" target="_blank" title="Jorge Moreno. Front End Web Developer and UI Designer. Zaragoza, Spain">@alterebro</a></p>
 </footer>
 
-
-<script type="text/javascript" src="pacecalc.js"></script>
 <script>
+
+	var paceCalculator = (function () {
+	
+	    'use strict';
+	
+	    // Utils
+	    function addclass(el, classname) {
+	    	if (el.classList) {
+	    		el.classList.add(classname);
+	    	} else {
+	    		el.className += ' ' + classname;
+	    	}
+	    }
+	    function removeclass(el, classname) {
+	    	if (el.classList) {
+	    		el.classList.remove(classname);
+	    	} else {
+	    		el.className = el.className.replace(new RegExp('(^|\\b)' + classname.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+	    	}
+	    }
+	
+	    var modal = {
+	        open : function(type, message) {
+	
+	            addclass(
+	                document.querySelector('#modal-window'),
+	                'open'
+	            );
+	            document.querySelector('#modal-info').style.display = 'none';
+	            document.querySelector('#modal-error').style.display = 'none';
+	
+	            switch (type) {
+	                case 'info':
+	                    var t = seconds_to_hhmmss( _get.time() );
+	                    var d = +(Math.round(_get.distance() + "e+2")  + "e-2");
+	                    var d_unit = document.querySelector('#distance-unit option:checked');
+	                    var p = seconds_to_hhmmss( _get.pace() );
+	                    var p_unit = document.querySelector('#pace-unit option:checked');
+	
+	                    document.querySelector('#modal-info-time').innerHTML = t.h + 'h ' + t.m + '′ ' + t.s + '″';
+	                    document.querySelector('#modal-info-distance').innerHTML = d + ' ' + (d_unit.textContent || d_unit.innerText);
+	                    document.querySelector('#modal-info-pace').innerHTML = p.m + '′ ' + p.s + '″ / ' + (p_unit.textContent || p_unit.innerText);
+	
+	                    document.querySelector('#modal-info').style.display = 'block';
+	                    break;
+	
+	                case 'error':
+	                    document.querySelector('#modal-error').innerHTML = message;
+	                    document.querySelector('#modal-error').style.display = 'block';
+	                    break;
+	
+	                default:
+	                    this.close();
+	            }
+	        },
+	        close : function() {
+	            removeclass(
+	                document.querySelector('#modal-window'),
+	                'open'
+	            );
+	        }
+	    }
+	
+	    var calculate = {
+	        time : function() {
+	            if ( !_check.time() ) { 
+					modal.open('error', 'To calculate Time, enter the Pace and Distance'); 
+				}
+	            else {
+	                var time = seconds_to_hhmmss( _get.distance() * _get.pace() * _get.factor() );
+	                document.querySelector('#time-hours').value = time['h'];
+	                document.querySelector('#time-minutes').value = time['m'];
+	                document.querySelector('#time-seconds').value = time['s'];
+	
+	                modal.open('info');
+	            }
+	        },
+	        distance : function() {
+	            if ( !_check.distance() ) { 
+					modal.open('error', 'To calculate Distance, enter the Time and Pace'); 
+				}
+	            else {
+	                var distance = _get.time() / ( _get.pace() / _get.factor(true) );
+	                document.querySelector('#distance-amount').value = distance.toFixed(4);
+	
+	                modal.open('info');
+	            }
+	        },
+	        pace : function() {
+	            if ( !_check.pace() ) { modal.open('error', 'To calculate Pace, enter the Time and Distance'); }
+	            else {
+	                var pace_sec = ( _get.time() / _get.distance() ) / _get.factor();
+	                var pace = seconds_to_hhmmss( parseInt(pace_sec) );
+	
+	                if ( parseInt(pace['h']) > 0 ) {
+	                    pace['m'] = parseInt(pace['m']) + (parseInt(pace['h'])*60);
+	                    pace['h'] = 0;
+	                }
+	                document.querySelector('#pace-minutes').value = pace['m'];
+	                document.querySelector('#pace-seconds').value = pace['s'];
+	
+	                modal.open('info');
+	            }
+	        },
+	        splits : function() {}
+	    }
+	
+	    var _check = {
+	        time : function() { return ( !!_get.distance() && !!_get.pace() ); },
+	        distance : function() { return ( !!_get.time() && !!_get.pace() ); },
+	        pace : function() { return ( !!_get.time() && !!_get.distance() ); }
+	    }
+	
+	    var _get = {
+	        factor : function(reverse) {
+	            var d = document.querySelector('#distance-unit option:checked').value;
+	            var p = document.querySelector('#pace-unit option:checked').value;
+	            return (!!reverse) ? convert_units(p, d) : convert_units(d, p);
+	        },
+	        time : function() {
+	            var h = document.querySelector('#time-hours').value;
+	                h = (h == '') ? 0 : stripZeros(h);
+	            var m = document.querySelector('#time-minutes').value;
+	                m = (m == '') ? 0 : stripZeros(m);
+	            var s = document.querySelector('#time-seconds').value;
+	                s = (s == '') ? 0 : stripZeros(s);
+	            var time_seconds = hhmmss_to_seconds(h,m,s);
+	
+	            return (
+	                isPositiveNumber(h) &&
+	                isPositiveNumber(m) &&
+	                isPositiveNumber(s) &&
+	                ( time_seconds > 0 )
+	            ) ? parseFloat(time_seconds) : false;
+	        },
+	        distance : function() {
+	            var el = document.querySelector('#distance-amount');
+	            var dist = el.value;
+	                dist = stripZeros( dist.replace(',','.') );
+	                el.value = dist;
+	
+	            return (isPositiveNumber(dist) && dist > 0) ? parseFloat(dist) : false;
+	        },
+	        pace : function() {
+	            var m = document.querySelector('#pace-minutes').value;
+	                m = (m == '') ? 0 : stripZeros(m);
+	            var s = document.querySelector('#pace-seconds').value;
+	                s = (s == '') ? 0 : stripZeros(s);
+	            var time_seconds = hhmmss_to_seconds(0,m,s);
+	
+	            return (
+	                isPositiveNumber(m) &&
+	                isPositiveNumber(s) &&
+	                ( time_seconds > 0 )
+	            ) ? parseFloat(time_seconds) : false;
+	        }
+	    }
+	
+	    // -------
+	    function convert_units(input_unit, output_unit) {
+	        var conversion_map = {
+	            'Mile' : {
+	                'Mile' : 1,
+	                'Kilometer' : 1.609344,
+	                'Meter' : 1609.344,
+	                'Yard' :  1760,
+	                'Half Mile' : 2,
+	                'Quarter Mile' : 4,
+	                'Eigth Mile' : 8,
+	                '1500M' : 1.072896,
+	                '800M' : 2.01168,
+	                '400M' : 4.02336,
+	                '200M' : 8.04672
+	            },
+	            'Kilometer' : {
+	                'Mile' : 0.6213712,
+	                'Kilometer' : 1,
+	                'Meter' : 1000,
+	                'Yard' :  1093.613,
+	                'Half Mile' : 1.2427424,
+	                'Quarter Mile' : 2.4854848,
+	                'Eigth Mile' : 4.9709696,
+	                '1500M' : 0.66666666,
+	                '800M' : 1.25,
+	                '400M' : 2.5,
+	                '200M' : 5
+	            },
+	            'Meter' : {
+	                'Mile' : 0.0006213712,
+	                'Kilometer' : 0.001,
+	                'Meter' : 1,
+	                'Yard' :  1.093613,
+	                'Half Mile' : 0.0012427424,
+	                'Quarter Mile' : 0.0024854848,
+	                'Eigth Mile' : 0.0049709696,
+	                '1500M' : 0.00066666666,
+	                '800M' : 0.00125,
+	                '400M' : 0.0025,
+	                '200M' : 0.005
+	            },
+	            'Yard' : {
+	                'Mile' : 0.0005681,
+	                'Kilometer' : 0.0009144,
+	                'Meter' :  0.9144,
+	                'Yard' : 1,
+	                'Half Mile' : 0.0011362,
+	                'Quarter Mile' : 0.0022724,
+	                'Eigth Mile' : 0.0045448,
+	                '1500M' : 0.0006096,
+	                '800M' : 0.001143,
+	                '400M' : 0.002286,
+	                '200M' : 0.004572
+	            }
+	        };
+	        return conversion_map[input_unit][output_unit];
+	    }
+	
+	    // -------
+	    function hhmmss_to_seconds(hours, minutes, seconds) {
+	        return parseFloat( hours * 3600 ) + parseFloat( minutes * 60 ) + parseFloat( seconds );
+	    }
+	
+	    function seconds_to_hhmmss(seconds) {
+	        var h = Math.floor( seconds/3600 );
+	        var m = Math.floor( seconds/60 ) - ( h*60 );
+	        var s = seconds - (m*60) - (h*3600);
+	
+	        return  {
+	            h : ("0" + h).slice (-2),
+	            m : ("0" + m).slice (-2),
+	            s : ("0" + s).slice (-2)
+	        }
+	    }
+	
+	    function stripZeros(inputNumber) {
+	        var n = parseFloat(inputNumber);
+	        return ( !isNaN(n) ) ? n : 0;
+	    }
+	
+	    function isPositiveNumber(inputNumber) {
+	        var n = parseFloat(inputNumber);
+	        return (!isNaN(n) && n >= 0);
+	    }
+	    // -------
+	
+	    function set_distance_unit(el) {
+	        var selected = document.querySelector('#'+el+' option:checked').getAttribute('value');
+	            selected = selected.split('-');
+	
+	            if ( selected.length == 2 ) {
+	
+	                var unit = (selected[1] == 'K') ? 'Kilometer' : 'Mile';
+	                document.querySelector('#distance-amount').value = selected[0];
+	
+	                var unit_opts = document.querySelectorAll('#distance-unit option');
+	                for (var i = 0; i < unit_opts.length; i++) {
+	            		unit_opts[i].removeAttribute('selected');
+	            	}
+	                document.querySelector('#distance-unit option[value='+unit+']').setAttribute('selected', 'selected');
+	            }
+	    }
+	
+	    return {
+	        init : function() {
+	            document.querySelector('#event-select').onchange = function() {
+	                set_distance_unit( this.getAttribute('id') );
+	            };
+	            document.querySelector('#calculate-time').onclick = function(e) { 
+					calculate.time(); 
+					e.preventDefault(); 
+					this.blur(); 
+				};
+	            document.querySelector('#calculate-distance').onclick = function(e) { 
+					calculate.distance(); 
+					e.preventDefault(); 
+					this.blur(); 
+				};
+	            document.querySelector('#calculate-pace').onclick = function(e) { 
+					calculate.pace(); 
+					e.preventDefault(); 
+				}
+	
+	            document.querySelector('#modal-alright').onclick = function() {
+	                modal.close();
+	            }
+	
+	        }
+	    };
+		
+	}());
+
 	paceCalculator.init();
 </script>
 </body>
